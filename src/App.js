@@ -22,8 +22,8 @@ function App() {
           </div>
         </div>
         <div className='buttons'>
-          <button className={`sec-button ${isCompleteScreen === false && 'active'}`} onClick={setIsCompleteScreen === false }>TODO</button>
-          <button className={`sec-button ${isCompleteScreen === true && 'active'}`} onClick={setIsCompleteScreen === true }>Completed</button>
+          <button className={`sec-button ${isCompleteScreen === false && 'active'}`} onClick={() => setIsCompleteScreen(false) }>TODO</button>
+          <button className={`sec-button ${isCompleteScreen === true && 'active'}`} onClick={() => setIsCompleteScreen(true) }>Completed</button>
         </div>
         <div className='todolist-area'>
           <div>
