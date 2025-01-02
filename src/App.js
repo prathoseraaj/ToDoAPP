@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './App.css';
+import { AiFillDelete } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
 
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false)
@@ -22,13 +24,19 @@ function App() {
           </div>
         </div>
         <div className='buttons'>
-          <button className={`sec-button ${isCompleteScreen === false && 'active'}`} onClick={() => setIsCompleteScreen(false) }>TODO</button>
-          <button className={`sec-button ${isCompleteScreen === true && 'active'}`} onClick={() => setIsCompleteScreen(true) }>Completed</button>
+          <button className={`sec-button ${isCompleteScreen === false && 'active'}`} 
+                  onClick={() => setIsCompleteScreen(false) }>TODO</button>
+          <button className={`sec-button ${isCompleteScreen === true && 'active'}`} 
+                  onClick={() => setIsCompleteScreen(true) }>Completed</button>
         </div>
         <div className='todolist-area'>
-          <div>
-            <h3>Task 1</h3>  {/*dummy test*/}
-            <p>description</p>  {/*dummy test*/}
+          <div className='intodoarea'>
+            <h2 className='toadd'>Task 1</h2>  {/*dummy test*/}
+            <p className='toadd' id='description'>description</p>  {/*dummy test*/}
+          </div>
+          <div className='intodoarea' id='iconss'>
+          <AiFillDelete className='icons' id='deleteicon'/>
+          <BsCheckLg className='icons' id='tickicon'/>
           </div>
         </div>
       </div>

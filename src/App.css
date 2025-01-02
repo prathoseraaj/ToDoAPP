@@ -12,7 +12,7 @@ h1{
 }
 
 .todopage{  
-    background-color: rgb(61, 61, 61);
+    background-color: #353434;
     text-align: center;
     color: rgb(255, 255, 255);
     margin-left: auto;
@@ -88,7 +88,61 @@ input{
 
 .active{
     background-color: rgb(229, 17, 17);
-
-
 }
+
+.todolist-area {
+    background-color: #414040;
+    padding-left: 10px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+
+.toadd{
+    display: flex;
+    align-items: start;
+    padding-left: 25px;
+}
+
+h2{
+    color: rgb(229, 17, 17);
+    font-weight: 900;
+}
+
+#description{
+    margin-top: -10px;
+    color: gray;
+}
+
+#iconss {
+    display: flex;
+    align-items: center;
+    padding-right: 75px;
+}
+
+.icons{
+    font-size: 35px
+}
+
+#deleteicon{
+    cursor: pointer;
+}
+
+#deleteicon:hover{
+    color: rgb(229, 17, 17) ;
+}
+
+#tickicon{
+    cursor: pointer;
+}
+
+#tickicon:hover{
+    color: rgb(229, 17, 17) ;
+}
+
+
 
