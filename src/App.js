@@ -53,6 +53,13 @@ function App() {
     handleDeletebutton(index);
   }
 
+  let handleDeletebuttonCompleted = (index) => {
+    let reduceTodos = [...completedTodo];
+    reduceTodos.splice(index,1);
+    setIsCompletedTodo(reduceTodos);
+    localStorage.setItem('completedtodolist', JSON.stringify(reduceTodos));
+  }
+
   useEffect(() => {
     let savedTodos = JSON.parse(localStorage.getItem('todolist'));
 
@@ -123,7 +130,7 @@ function App() {
             <p className='toadd' id='description'>CompletedOn:{item.completedOn}</p>  {/*dummy test*/}
           </div>
           <div className='intodoarea' id='iconss'>
-          <AiFillDelete className='icons' id='deleteicon' onClick={() => handleDeletebutton(index)}/>
+          <AiFillDelete className='icons' id='deleteicon' onClick={() => handleDeletebuttonCompleted(index)}/>
           </div>
         </div>
         )})}
