@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import { AiFillDelete } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs";
@@ -17,8 +17,28 @@ function App() {
     let updateTodos = [...todos]
     updateTodos.push(newTodoItems)
     setTodos(updateTodos)
-    
+    localStorage.setItem('todolist',JSON.stringify(updateTodos))
   }
+
+  let handleDeletebutton = (index) => {
+    let reduceTodos = [...todos]
+    reduceTodos.splice(index,1)
+    localStorage.setItem('todolist',JSON.stringify(reduceTodos))
+    setTodos(reduceTodos)
+  }
+
+  useEffect(() => {
+    let savedTodos = JSON.parse(localStorage.getItem('todolist'));
+    if(savedTodos){
+      setTodos(savedTodos)
+    }
+
+  },[])
+
+  let handleTickbutton = () => {
+    setNewtitle('')
+  }
+
 
   return (
     <div className="App">
@@ -58,7 +78,7 @@ function App() {
             <p className='toadd' id='description'>{item.description}</p>  {/*dummy test*/}
           </div>
           <div className='intodoarea' id='iconss'>
-          <AiFillDelete className='icons' id='deleteicon' onClick={handleDeletebutton}/>
+          <AiFillDelete className='icons' id='deleteicon' onClick={() => handleDeletebutton(index)}/>
           <BsCheckLg className='icons' id='tickicon' onClick={handleTickbutton}/>
           </div>
         </div>
