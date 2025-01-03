@@ -32,6 +32,7 @@ function App() {
     if(savedTodos){
       setTodos(savedTodos)
     }
+    console.log(localStorage); // to check the local storage
 
   },[])
 
