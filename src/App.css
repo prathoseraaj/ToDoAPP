@@ -144,5 +144,18 @@ h2{
     color: rgb(229, 17, 17) ;
 }
 
+.edit{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.edit input, .edit textarea{
+    border: 1px solid lightgrey;
+    margin: 5px;
+    border-radius: 3px;
+}
+
+
 
 

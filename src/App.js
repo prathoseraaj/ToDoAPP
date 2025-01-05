@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { AiFillDelete } from "react-icons/ai";
 import { BsCheckLg } from "react-icons/bs";
+import { AiOutlineEdit } from "react-icons/ai";
 
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
@@ -9,6 +10,8 @@ function App() {
   const [newtitle, setNewtitle] = useState('');
   const [newdescription, setNewdiscription] = useState('');
   const [completedTodo, setIsCompletedTodo] = useState([]);
+  const [currentedit, setCurrentedit] = useState('');
+  const [currentedititem, setcurrentedititem] = useState('');
 
   let handleAddtodos = () => {
     let newTodoItems = {
@@ -60,6 +63,31 @@ function App() {
     localStorage.setItem('completedtodolist', JSON.stringify(reduceTodos));
   }
 
+  let handleEdit = (index,item) => {
+    setCurrentedit(index);
+    setcurrentedititem(item);
+  }
+
+  let handleUpdatediscription = (value) => {
+    setcurrentedititem((prev) => {
+      return {...prev, description: value}
+    })
+  }
+
+  let handleUpdatetitle = (value) => {
+    setcurrentedititem((prev) => {
+      return {...prev, title: value}
+    })
+  }
+
+  let handleUpdatetodos = () => {
+    let prevtodos = [...todos];
+    prevtodos[currentedit] = currentedititem;
+    setTodos(prevtodos);
+    setCurrentedit("");
+    setcurrentedititem("");
+  }
+
   useEffect(() => {
     let savedTodos = JSON.parse(localStorage.getItem('todolist'));
 
@@ -108,6 +136,16 @@ function App() {
                   onClick={() => setIsCompleteScreen(true) }>Completed</button>
         </div>
         {isCompleteScreen===false && todos.map((item,index) => {
+          if (currentedit === index) {
+            return(
+              <div className='edit' key={index}>
+              <input type="text" value={currentedititem.title} onChange={(e) => handleUpdatetitle(e.target.value)}/>
+              <textarea type="text" rows={4} value={currentedititem.description} onChange={(e) => handleUpdatediscription(e.target.value)} />
+              <button className='my-button' type='button' onClick={handleUpdatetodos}>Update</button>
+            </div>
+            
+            )
+          }
           return(
           <div className='todolist-area'>
           <div className='intodoarea' key={index}>
@@ -116,8 +154,9 @@ function App() {
 
           </div>
           <div className='intodoarea' id='iconss'>
-          <AiFillDelete className='icons' id='deleteicon' onClick={() => handleDeletebutton(index)}/>
-          <BsCheckLg className='icons' id='tickicon' onClick={() => handleTickbutton(index)}/>
+            <AiFillDelete className='icons' id='deleteicon' onClick={() => handleDeletebutton(index)}/>
+            <BsCheckLg className='icons' id='tickicon' onClick={() => handleTickbutton(index)}/>
+            <AiOutlineEdit className='icons' id='editicon' onClick={() => handleEdit(index, item)}/>
           </div>
         </div>
         )})}
