@@ -77,6 +77,16 @@ input{
 
 }
 
+#TODOBUTTON{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#COMPBUTTON{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .sec-button{
     border: 0px;
     padding-top: 5px;

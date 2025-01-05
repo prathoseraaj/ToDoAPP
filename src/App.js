@@ -131,8 +131,10 @@ function App() {
         </div>
         <div className='buttons'>
           <button className={`sec-button ${isCompleteScreen === false && 'active'}`} 
+                  id='TODOBUTTON'
                   onClick={() => setIsCompleteScreen(false) }>TODO</button>
           <button className={`sec-button ${isCompleteScreen === true && 'active'}`} 
+                  id='COMPBUTTON'
                   onClick={() => setIsCompleteScreen(true) }>Completed</button>
         </div>
         {isCompleteScreen===false && todos.map((item,index) => {
