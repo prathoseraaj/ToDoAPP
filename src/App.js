@@ -40,7 +40,7 @@ function App() {
     let m = now.getMinutes();
     let s = now.getSeconds();
 
-    let completedOn = dd + `-` + mm + `-` + yy + ` at ` + h + `:` + m + `:` + s ;
+    let completedOn = ` `+ dd + `-` + mm + `-` + yy + ` at ` + h + `:` + m + `:` + s ;
     console.log(completedOn); //check the date and time
 
     let filteredItem = {
@@ -140,12 +140,15 @@ function App() {
         {isCompleteScreen===false && todos.map((item,index) => {
           if (currentedit === index) {
             return(
+              <div>
               <div className='edit' key={index}>
               <input type="text" value={currentedititem.title} onChange={(e) => handleUpdatetitle(e.target.value)}/>
               <textarea type="text" rows={4} value={currentedititem.description} onChange={(e) => handleUpdatediscription(e.target.value)} />
-              <button className='my-button' type='button' onClick={handleUpdatetodos}>Update</button>
             </div>
-            
+            <div>
+            <button className='my-button' type='button' onClick={handleUpdatetodos}>Update</button>
+            </div>
+            </div>
             )
           }
           return(
