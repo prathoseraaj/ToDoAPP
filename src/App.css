@@ -61,6 +61,8 @@ input{
     background-color: white;
     border: 0px;
     margin-top: 5px;
+    border-radius: 5px;
+
 }
 
 .my-button{
@@ -71,7 +73,7 @@ input{
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
-
+    border-radius: 5px;
 
 }
 
